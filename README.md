@@ -1,4 +1,4 @@
-# Itamae
-========
+Itamae
+======
 
 My itamae.
