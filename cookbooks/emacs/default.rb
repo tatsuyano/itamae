@@ -13,6 +13,7 @@ execute "Install emacs-24.5" do
     ./configure
     make
     sudo make install
+    sudo rm -rf emacs-24.5 emacs-24.5.tar.gz
   EOF
   not_if "test -e /usr/local/bin/emacs"
 end
