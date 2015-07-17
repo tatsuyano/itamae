@@ -13,14 +13,12 @@ execute "Install emacs-24.5" do
     ./configure
     make
     sudo make install
+    cd ../
     sudo rm -rf emacs-24.5 emacs-24.5.tar.gz
   EOF
   not_if "test -e /usr/local/bin/emacs"
 end
 
-execute "Put a symbolic link to '/usr/bin'" do
-  command <<-EOF
-    ln -s /usr/local/bin/emacs /usr/bin/emacs
-  EOF
-  not_if "test -e /usr/bin/emacs"
+link "/usr/bin/emacs" do
+  to "/usr/local/bin/emacs"
 end

@@ -5,15 +5,35 @@ execute "Update yum repo" do
   command "yum -y update"
 end
 
-%w(git wget tree nkf).each do |p|
+# Install git, wget and tree.
+%w(git wget tree).each do |p|
   user "root"
   package p
 end
 
-execute "Install tig and tmux" do
+# Install tig and tmux.
+%w(tig tmux).each do |p|
+  execute "Install #{p}" do
+    user "root"
+    command <<-EOF
+      yum list | grep #{p}
+      if [ "$?" -eq 1 ]; then
+        rpm -ivh http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.2-2.el6.rf.x86_64.rpm
+      fi
+      yum -y install #{p}
+    EOF
+    not_if "test -e /usr/bin/#{p}"
+  end
+end
+
+execute "Install nkf" do
   user "root"
   command <<-EOF
-    rpm -ivh http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.2-2.el6.rf.x86_64.rpm
-    yum -y install tig tmux
+    yum list | grep nkf
+    if [ "$?" -eq 1 ]; then
+      rpm -ivh http://mirror.centos.org/centos/6/os/x86_64/Packages/nkf-2.0.8b-6.2.el6.x86_64.rpm
+    fi
+    yum -y install nkf  
   EOF
+  not_if "test -e /usr/bin/nkf"
 end
