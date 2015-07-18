@@ -45,6 +45,7 @@ execute "Setting oh-my-zsh" do
     cp -a /home/#{node[:user]}/.oh-my-zsh/templates/zshrc.zsh-template /home/#{node[:user]}/.zshrc
     chown -R #{node[:user]}:#{node[:user]} .oh-my-zsh
     chown -R #{node[:user]}:#{node[:user]} .zshrc
+    sed -i "s/robbyrussell/steeef/g" .zshrc
   EOF
   only_if "test -e /home/#{node[:user]}/.oh-my-zsh"
 end
