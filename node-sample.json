@@ -1,3 +1,4 @@
 {
-    "user": "vagrant"
+    "user": "vagrant",
+    "tmux_main_color": "magenta"
 }

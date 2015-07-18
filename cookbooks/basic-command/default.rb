@@ -26,6 +26,13 @@ end
   end
 end
 
+# $HOME/.tmux.conf
+remote_file "/home/#{node[:user]}/.tmux.conf" do
+  owner #{node[:user]}
+  group #{node[:user]}
+  source "templates/home/user/tmux.conf"
+end
+
 execute "Install nkf" do
   user "root"
   command <<-EOF
