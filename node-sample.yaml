@@ -1,0 +1,2 @@
+user: vagrant # or ec2-user or username
+tmux_main_color: cyan # status-fg color
