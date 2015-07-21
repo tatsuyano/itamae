@@ -1,8 +1,10 @@
+# -*- coding: utf-8 -*-
+
 execute "Install ndenv" do
   user node[:user]
   command <<-EOF
     touch node_env
-    echo 'export PATH="$HOME/.anyenv/bin:$PATH"' >> node_env
+    echo 'export PATH=$HOME/.anyenv/bin:$PATH' >> node_env
     echo 'eval "$(anyenv init -)"' >> node_env
     source /home/#{node[:user]}/node_env
     anyenv install ndenv
