@@ -1,2 +1,5 @@
 user: vagrant # or ec2-user or username
-tmux_main_color: cyan # status-fg color
+zsh:
+  theme: steeef
+  plugins: git z zsh-syntax-highlighting
+  tmux_main_color: cyan # status-fg color

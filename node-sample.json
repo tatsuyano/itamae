@@ -1,4 +1,8 @@
 {
     "user": "vagrant",
-    "tmux_main_color": "magenta"
+    "zsh":{
+        "theme": "steeef",
+        "plugins": "git z zsh-syntax-highlighting",
+        "tmux_main_color": "magenta"
+    }
 }
