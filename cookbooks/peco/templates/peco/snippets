@@ -1,0 +1,68 @@
+# ネットワーク
+host yahoo.co.jp | awk '{print $4}' | head -n 1 | xargs traceroute -n# ドメインからネットワークの経路を調べる
+route# ルーティングを見る
+
+# 置換
+echo $PATH | tr ':' '\n'#         置換(trコマンド)
+echo hoge  | tr a-z A-Z#          大文字、小文字置換(trコマンド)
+echo $PATH | perl -pe "s/:/\n/g"# 置換(perl)
+
+# for
+for x in `seq 1 10`; do; echo $x; done
+
+# 圧縮、回答
+tar cvzf hoge.tar.gz hoge# 圧縮
+tar xvzf hoge.tar.gz#      解凍
+
+# tmux
+C-z &# tmux ウィンドウ強制終了
+C-z {# tmux ペインを入れ替え
+
+# domain
+whois 10rane.com#               レジストラ、whois情報
+nslookup -type=any 10rane.com#  dns
+dig blog.10rane.com any#        レコード
+dig 10rane.com any#             レコード
+
+# port
+netstat -an |grep LISTEN#       ListenされているPort
+lsof -i:2368#                   portを指定
+lsof -c node#                   プロセス名を指定
+
+# ps
+ps auxww | nl -ba | peco#       行番号表示(ps)
+
+# tail
+sudo tail -f /var/log/nginx/access.log# nginx
+sudo tail -f /var/log/nginx/error.log#  nginx
+
+# 置換
+find ./ -name '*.md' -print | xargs sed -i "s/mgauth/mgpf/g"#     一括置換
+find ./ -name '*.md' -print | xargs sed -i.bak "s/mgauth/mgpf/g"# 一括置換(元ファイルを残す)
+
+# heroku
+heroku apps:info#  applicationの情報
+heroku logs -t#    tail -fと同じ
+
+# mail(sudo yum -y install mailx)
+echo "BODY" | mail -s 'SUBJECT' tatsuyano@gmail.com# メールのテスト送信
+
+# file
+sudo tac /var/log/secure | more# ファイルを後ろから参照する
+
+# 負荷 http://qiita.com/kidachi_/items/07637a5baa0da7d52e6a
+sar -q#  loadaverage
+sar -u#  CPU使用率
+sar -b#  I/O
+sar -r#  メモリとスワップ使用率
+
+# git
+git blame ファイル名# 行ごとにコミッターの名前を表示
+
+# etc
+seq 1 20 | awk '{print $0%15?$0%5?$0%3?$0:"Fizz":"Buzz":"FizzBuzz"}'# FizzBu
+
+# [ifconfig.io](http://qiita.com/kuwa_tw/items/2cfba99958275e2a54ae)
+curl ifconfig.io#               サーバー(自身)のグローバルIPの確認
+curl ifconfig.io/host#          サーバー(自身)のhost名確認
+curl ifconfig.io/all.json | jq# サーバー(自身)の情報をjson形式(jq)で確認
