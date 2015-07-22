@@ -22,8 +22,8 @@ execute "Install ruby" do
     echo 'export PATH=$HOME/.anyenv/envs/rbenv/plugins/ruby-build/bin:$PATH' >> ruby_env
     echo 'eval "$(rbenv init -)"' >> ruby_env
     source /home/#{node[:user]}/ruby_env
-    rbenv install 2.2.2
-    rbenv global  2.2.2
+    rbenv install #{node[:ruby][:ver]}
+    rbenv global  #{node[:ruby][:ver]}
     rm ruby_env
   EOF
   only_if "test -e /home/#{node[:user]}/.anyenv/envs/rbenv"

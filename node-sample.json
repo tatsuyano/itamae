@@ -1,8 +1,15 @@
 {
     "user": "vagrant",
-    "zsh":{
+    "zsh": {
         "theme": "steeef",
         "plugins": "git z zsh-syntax-highlighting",
         "tmux_main_color": "magenta"
+    },
+    "nodejs": {
+        "ver": "v0.10.26",
+        "npm_install": "bower coffee-script"
+    },
+    "ruby": {
+        "ver": "2.2.2"
     }
 }
