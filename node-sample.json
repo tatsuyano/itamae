@@ -10,6 +10,15 @@
         "npm_install": "bower coffee-script"
     },
     "ruby": {
-        "ver": "2.2.2"
+        "ver": "2.2.2",
+        "gem_install": "bundler itamae"
+    },
+    "perl": {
+        "ver": "5.22.0",
+        "cpan_install": "Carton"
+    },
+    "python": {
+        "ver3": "3.3.4",
+        "easy_install": "pip"
     }
 }
