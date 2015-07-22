@@ -3,7 +3,6 @@
 # Target OS is Centos6 or Amazon Linux.
 
 include_recipe "../cookbooks/basic-command/default.rb"
-include_recipe "../cookbooks/emacs/default.rb"
 include_recipe "../cookbooks/golang/default.rb"
 include_recipe "../cookbooks/golang/directory_layout_and_ghq.rb"
 include_recipe "../cookbooks/zsh/default.rb"
@@ -15,3 +14,5 @@ include_recipe "../cookbooks/anyenv/ndenv.rb"
 include_recipe "../cookbooks/anyenv/rbenv.rb"
 include_recipe "../cookbooks/anyenv/plenv.rb"
 include_recipe "../cookbooks/anyenv/pyenv.rb"
+include_recipe "../cookbooks/anyenv/migemo.rb"
+include_recipe "../cookbooks/emacs/default.rb"
