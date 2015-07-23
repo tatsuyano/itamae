@@ -18,7 +18,7 @@ install_modules 'python' do
   EOF
 end
 
-install_modules 'node' do
+install_modules 'python' do
   cmd <<-EOF
     easy_install #{node[:python][:easy_install]}
     pyenv rehash

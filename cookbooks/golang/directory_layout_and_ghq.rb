@@ -23,5 +23,5 @@ execute "Install ghq" do
     go get github.com/motemen/ghq
     chown -R #{node[:user]}:#{node[:user]} bin pkg src
   EOF
-  not_if "test -e /home/node[:user]/bin/ghq"
+  not_if "test -e /home/#{node[:user]}/bin/ghq"
 end
