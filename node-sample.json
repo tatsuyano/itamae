@@ -11,7 +11,7 @@
     },
     "ruby": {
         "ver": "2.2.2",
-        "gem_install": "bundler itamae"
+        "gem_install": "bundler itamae rcodetools"
     },
     "perl": {
         "ver": "5.22.0",
