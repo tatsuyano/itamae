@@ -20,3 +20,9 @@ remote_file ".oh-my-zsh/custom/peco.zsh" do
   group node[:user]
   source "templates/oh-my-zsh/custom/peco.zsh"
 end
+
+remote_file ".oh-my-zsh/custom/peco-src-ignore" do
+  owner node[:user]
+  group node[:user]
+  source "templates/oh-my-zsh/custom/peco-src-ignore"
+end
