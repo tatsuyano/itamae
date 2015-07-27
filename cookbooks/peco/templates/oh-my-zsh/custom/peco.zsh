@@ -28,7 +28,7 @@ alias hs=peco-select-host
 # peco-src
 # (http://blog.kentarok.org/entry/2014/06/03/135300)
 function peco-src () {
-    local selected_dir=$(ghq list --full-path | egrep -v -f peco-src-ignore | peco --query "$LBUFFER")
+    local selected_dir=$(ghq list --full-path | egrep -v -f ~/.oh-my-zsh/custom/peco-src-ignore | peco --query "$LBUFFER")
     if [ -n "$selected_dir" ]; then
         BUFFER="cd ${selected_dir}"
         zle accept-line
