@@ -5,30 +5,24 @@ execute "Update yum repo" do
   command "yum -y update"
 end
 
-# Install git, wget and tree.
-%w(git wget tree).each do |p|
-  user "root"
-  package p
-end
+package 'wget'
+package 'tree'
 
-# Install tig and tmux.
-%w(tig tmux).each do |p|
-  execute "Install #{p}" do
-    user "root"
-    command <<-EOF
-      yum list | grep #{p}.x86_64
-      if [ "$?" -eq 1 ]; then
-        rpm -ivh http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.2-2.el6.rf.x86_64.rpm
-      fi
-      yum -y install #{p}
-    EOF
-    not_if "test -e /usr/bin/#{p}"
-  end
+execute "Install tmux" do
+  user "root"
+  command <<-EOF
+    yum list | grep tmux.x86_64
+    if [ "$?" -eq 1 ]; then
+      rpm -ivh http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.2-2.el6.rf.x86_64.rpm
+    fi
+    yum -y install tmux
+  EOF
+  not_if "test -e /usr/bin/tmux"
 end
 
 # $HOME/.tmux.conf
 remote_file "/home/#{node[:user]}/.tmux.conf" do
   owner node[:user]
   group node[:user]
-  source "templates/home/user/tmux.conf"
+  source "templates/tmux.conf"
 end
