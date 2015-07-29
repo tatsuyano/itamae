@@ -18,6 +18,11 @@ execute "Install dot_emacs" do
     ln -s src/github.com/tatsuyano/dot.emacs.d .emacs.d
     cd .emacs.d
     /home/#{node[:user]}/.cask/bin/cask
+    cd init_loader
+    find ~/.emacs.d/.cask -name 'dict' -print0 | xargs -0 -I % ln -s %
+    cd dict
+    wget https://raw.github.com/sandai/dotfiles/master/.emacs.d/ac-dict/js2-mode
+    cp -a css-mode scss-mode
   EOF
   not_if "test -e /home/#{node[:user]}/src/github.com/tatsuyano/dot.emacs.d"
 end
