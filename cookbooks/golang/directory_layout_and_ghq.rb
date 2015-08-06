@@ -8,7 +8,6 @@
   end
 end
 
-package 'git'
 file  ".gitconfig" do
   content "[ghq]\n    root = ~/src"
   mode "644"
