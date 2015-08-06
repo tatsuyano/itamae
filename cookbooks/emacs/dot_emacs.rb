@@ -16,6 +16,7 @@ execute "Install dot_emacs" do
     ghq get https://github.com/tatsuyano/dot.emacs.d.git
     rm -rf .emacs.d
     ln -s src/github.com/tatsuyano/dot.emacs.d .emacs.d
+    ln -s src/github.com/tatsuyano/dot.emacs.d/tern-config .tern-config
     cd .emacs.d
     /home/#{node[:user]}/.cask/bin/cask
     cd init_loader

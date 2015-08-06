@@ -5,7 +5,7 @@ zsh:
   tmux_main_color: cyan # status-fg color
 nodejs:
   ver: v0.10.26
-  npm_install: bower coffee-script
+  npm_install: bower coffee-script tern
 ruby:
   ver: 2.2.2
   gem_install: bundler itamae rcodetools
