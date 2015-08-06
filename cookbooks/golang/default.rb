@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+package 'git'
+
 execute "Install golang" do
   user "root"
   command <<-EOF
