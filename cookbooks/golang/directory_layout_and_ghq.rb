@@ -1,3 +1,4 @@
+# coding: utf-8
 ## The directory layout to the format of the golang
 
 %w(bin pkg src).each do |d|
@@ -7,6 +8,8 @@
     group node[:user]
   end
 end
+
+package 'git' # Git is required in order to install the ghq
 
 file  ".gitconfig" do
   content "[ghq]\n    root = ~/src"
