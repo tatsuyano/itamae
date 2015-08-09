@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-%w(gcc ncurses-devel git).each do |p|
+%w(gcc ncurses-devel).each do |p|
   user "root"
   package p
 end
