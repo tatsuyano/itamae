@@ -13,9 +13,6 @@ execute "Install git(not yum install)" do
     export GOPATH=/home/#{node[:user]}
     export PATH=$GOPATH/bin:$PATH
     ghq get https://github.com/git/git.git
-
-    sudo yum -y remove git
-
     cd src/github.com/git/git
     make all prefix=/usr
     sudo make install prefix=/usr
