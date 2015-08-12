@@ -12,3 +12,10 @@ execute "Install tig" do
   EOF
   not_if "test -e /usr/local/bin/tig"
 end
+
+# $HOME/.tigrc
+remote_file "/home/#{node[:user]}/.tigrc" do
+  owner node[:user]
+  group node[:user]
+  source "templates/tigrc"
+end
