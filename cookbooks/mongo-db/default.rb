@@ -8,6 +8,13 @@ define :install, repo: nil do
   end
   package 'mongodb-org'
   execute 'sudo chkconfig mongod on'
+
+  # $HOME/.mongorc.js
+  remote_file "/home/#{node[:user]}/.mongorc.js" do
+    owner node[:user]
+    group node[:user]
+    source "templates/mongorc.js"
+  end
 end
 
 install 'mongo_db' do
