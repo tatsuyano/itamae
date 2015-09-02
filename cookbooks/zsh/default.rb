@@ -5,16 +5,16 @@
   package p
 end
 
-execute "Install zsh-5.0.8" do
+execute "Install zsh-5.1.0" do
   command <<-EOF
-    wget http://www.zsh.org/pub/zsh-5.0.8.tar.bz2
-    tar jxvf zsh-5.0.8.tar.bz2
-    cd zsh-5.0.8
+    wget http://sourceforge.net/projects/zsh/files/zsh/5.1/zsh-5.1.tar.gz
+    tar xvzf zsh-5.1.tar.gz
+    cd zsh-5.1
     ./configure
     make
     sudo make install
     cd ../
-    sudo rm -rf zsh-5.0.8 zsh-5.0.8.tar.bz2
+    sudo rm -rf zsh-5.1 zsh-5.1.tar.gz
   EOF
   not_if "test -e /usr/local/bin/zsh"
 end
