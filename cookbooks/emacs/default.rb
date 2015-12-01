@@ -10,7 +10,7 @@ execute "Install emacs-24.5" do
     wget http://mirror.jre655.com/GNU/emacs/emacs-24.5.tar.gz
     tar xvzf emacs-24.5.tar.gz
     cd emacs-24.5
-    ./configure
+    ./configure --with-x-toolkit=no --with-xpm=no --with-png=no --with-gif=no
     make
     sudo make install
     cd ../
