@@ -7,6 +7,7 @@ end
 
 package 'wget'
 package 'tree'
+package 'git'
 
 execute "Install tmux" do
   user "root"
