@@ -19,6 +19,11 @@ execute "Install emacs-24.5" do
   not_if "test -e /usr/local/bin/emacs"
 end
 
-link "/usr/bin/emacs" do
-  to "/usr/local/bin/emacs"
+execute "Install htop" do
+  user "root"
+  command <<-EOF
+    rm /usr/bin/emacs
+    ln -s /usr/local/bin/emacs /usr/bin/emacs
+  EOF
+  only_if "test -e /usr/local/bin/emacs"
 end

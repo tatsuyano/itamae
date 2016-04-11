@@ -5,9 +5,10 @@ execute "Update yum repo" do
   command "yum -y update"
 end
 
-package 'wget'
-package 'tree'
-package 'git'
+%w(wget tree git tig jq).each do |p|
+  user "root"
+  package p
+end
 
 execute "Install tmux" do
   user "root"

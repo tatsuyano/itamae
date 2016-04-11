@@ -9,8 +9,7 @@ execute "Install htop" do
       yum --enablerepo=epel install -y htop
     else
       yum -y install htop
-   fi
- 
+    fi
   EOF
   not_if "test -e /usr/bin/htop"
 end

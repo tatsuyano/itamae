@@ -1,10 +1,8 @@
 execute "Install peco" do
-  user "root"
   command <<-EOF
     export GOPATH=/home/#{node[:user]}
     export PATH=$PATH:$GOPATH/bin
     go get github.com/peco/peco/cmd/peco
-    chown -R #{node[:user]}:#{node[:user]} bin pkg src
   EOF
   not_if "test -e /home/node[:user]/bin/peco"  
 end
