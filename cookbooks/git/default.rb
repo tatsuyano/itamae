@@ -1,11 +1,9 @@
 # -*- coding: utf-8 -*-
 
-package 'curl-devel'
-package 'expat-devel'
-package 'gettext-devel'
-package 'openssl-devel'
-package 'zlib-devel'
-package 'perl-ExtUtils-MakeMaker'
+%w(curl-devel expat-devel gettext-devel openssl-devel zlib-devel perl-ExtUtils-MakeMaker).each do |p|
+  user "root"
+  package p
+end
 
 execute "Install git(not yum install)" do
   user node[:user]

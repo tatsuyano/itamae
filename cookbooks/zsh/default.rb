@@ -19,8 +19,10 @@ execute "Install zsh-5.1.0" do
   not_if "test -e /usr/local/bin/zsh"
 end
 
-link "/usr/bin/zsh" do
-  to "/usr/local/bin/zsh"
+execute "Create link" do
+  user "root"
+  command "ln -s /usr/local/bin/zsh /usr/bin/zsh"
+  only_if "test -e /usr/local/bin/zsh"
 end
 
 execute "Add zsh to '/etc/shells'" do
