@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 git ".oh-my-zsh" do
-  repository "git://github.com/robbyrussell/oh-my-zsh.git"
+  repository "https://github.com/robbyrussell/oh-my-zsh.git"
   only_if "test -e /usr/local/bin/zsh"
 end
 
