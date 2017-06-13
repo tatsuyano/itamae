@@ -59,6 +59,15 @@ sar -r#  メモリとスワップ使用率
 # git
 git blame ファイル名# 行ごとにコミッターの名前を表示
 
+git reset --hard 066cc51cbee07c6f1ba73a062f41c6cfd4b55cdd#指定のバージョンにブランチを戻す(ブランチは変わらない)
+git pull origin master#ブランチを最新に戻す(git reset --hardで変えた場合)
+
+git checkout -b 066cc51cbee07c6f1ba73a062f41c6cfd4b55cdd#指定したバージョンにブランチを戻す(別ブランチを作る)
+git checkout HEAD#ブランチを最新に戻す(git checkout で変えた場合)
+
+git checkout -b 066cc51cbee07c6f1ba73a062f41c6cfd4b55cdd hoge.php#指定したバージョンにファイルを戻す
+git checkout HEAD -- hoge.php#ブランチを最新に戻す(git checkout で変えた場合)
+
 # etc
 seq 1 20 | awk '{print $0%15?$0%5?$0%3?$0:"Fizz":"Buzz":"FizzBuzz"}'# FizzBu
 
