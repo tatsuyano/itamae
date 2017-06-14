@@ -18,9 +18,14 @@ bindkey '^r' peco-select-history
 
 # peco-select-host
 function peco-select-host () {
-    host=$(grep -iE '^host\s+(\w|\d)+' ~/.ssh/config | awk '{print $2}' | peco)
+    host=$(grep -iE '^host\s+(\w|\d)+' ~/.ssh/config | awk '{print $2}' | egrep -v 'github|bitbucket' | peco)
     if [ -n "$host" ]; then
-        ssh $host
+        pwd=$(grep -iE "^host\s+(${host})+" ~/.ssh/config | awk '{print $4}')
+        if [ -n "$pwd" ]; then
+            $HOME/.ssh/auto_ssh.exp $host $pwd
+        else
+            ssh $host
+        fi
     fi
 }
 alias hs=peco-select-host
