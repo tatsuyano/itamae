@@ -1,0 +1,20 @@
+#!/usr/bin/expect
+
+set RemoteHost [lindex $argv 0]
+set PW [lindex $argv 1]
+set timeout 5
+
+spawn env LANG=C /usr/bin/ssh ${RemoteHost}
+
+expect {
+    -glob "Enter passphrase for key" {
+        send "${PW}\n"
+    }
+}
+
+expect {
+    "\\\$" {
+        interact
+        exit 0
+    }
+}
