@@ -18,6 +18,13 @@ tar xvzf hoge.tar.gz#      解凍
 C-z &# tmux ウィンドウ強制終了
 C-z {# tmux ペインを入れ替え
 
+# diff
+diff --strip-trailing-cr hoge.php hoge2.php#文字コードを無視する
+
+# nkf
+nkf -Lu --overwrite hoge.php#改行コードをLF(Linux)に変更
+nkf -Lw --overwrite hoge.php#改行コードをCRLF(Win)に変更
+
 # domain
 whois 10rane.com#               レジストラ、whois情報
 nslookup -type=any 10rane.com#  dns
