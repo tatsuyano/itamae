@@ -13,6 +13,11 @@ if [ -d $HOME/.anyenv ]; then
    eval "$(anyenv init - zsh)"
 fi
 
+## tmux (http://qiita.com/takus/items/c166700393481cb15e0c)
+if [ -f $HOME/.tmux.conf ]; then
+   DISABLE_AUTO_TITLE=true
+fi
+
 ## Emacs-cask
 if [ -d $HOME/.cask ]; then
    export PATH=$HOME/.cask/bin:$PATH
