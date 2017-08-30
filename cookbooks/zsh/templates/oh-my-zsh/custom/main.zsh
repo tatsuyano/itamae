@@ -43,4 +43,5 @@ if [[ "$(uname)" != "Darwin" ]]; then
    alias ls='ls -F --color=auto'
 fi
 
+alias tmux='tmux -u' # utf8対策
 function tmr(){ tmux new -s $1 || tmux attach -d -t $1; }
